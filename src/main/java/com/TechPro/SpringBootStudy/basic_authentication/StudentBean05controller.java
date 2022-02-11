@@ -3,6 +3,7 @@ package com.TechPro.SpringBootStudy.basic_authentication;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -31,4 +32,27 @@ public class StudentBean05controller {
 
         return stdSrvc.updateFullyStudentById(id,newStd);
     }
+
+    @DeleteMapping(path="/deleteStudentById/{id}")
+    public String deleteStdntById(@PathVariable Long id){
+        return stdSrvc.deletStudentById(id);//service layer method call
+    }
+
+    @PatchMapping(path = "/updatePartialStudentById/{id}")
+    public StudentBean05 updatePertialStdntById(@PathVariable Long id ,@RequestBody StudentBean05 newStdnt){
+        return stdSrvc.updatePatchStudentById(id,newStdnt);
+    }
+
+    @PostMapping(path = "/addStudent")
+    public StudentBean05 addStdnt (@RequestBody StudentBean05 newStdnt) throws SQLException, ClassNotFoundException {
+
+
+        return stdSrvc.addStudent(newStdnt);
+    }
+
+
+
+
+
+
 }
