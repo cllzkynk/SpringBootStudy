@@ -16,7 +16,7 @@ public class StudentBean05controller {
         this.stdSrvc = stdSrvc;
     }
 
-    //bu method id ile ogrc returnn eden service methodu call edecek
+    //bu method id ile ogrc returnn eden servicae methodu call edecek
     @GetMapping(path = "/selectStudentById/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_STUDENT')")//BU methodu ROLE  göre yetkilendir
     public StudentBean05 selectStudentById(@PathVariable Long id) {

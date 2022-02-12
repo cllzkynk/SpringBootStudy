@@ -26,15 +26,16 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         this.passEncode = passEncode;
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 csrf().disable().//ey springboot put delete post patch method calıştır. sorumluluk benim..Bu methodların block'un(default) kaldır
                 authorizeRequests().//her request için//Requestler için yetki sorgula (get put patch delete post)
                 antMatchers("/", "index", "/css/*", "/js/*").permitAll(). //antMatchers() method parametresindeki url'lere izin(username pass sorgusu yapma) ver
-                // antMatchers("/**").hasRole(ApplicationUserRoles.ADMIN.name()).//ROLE BASED AUTH:home page'den sonraki tum sayfalara SADECE admin name sahip user role  kullanabilir.
+              // antMatchers("/**").hasRole(ApplicationUserRoles.ADMIN.name()).//ROLE BASED AUTH:home page'den sonraki tum sayfalara SADECE admin name sahip user role  kullanabilir.
                 // ROLE BASED AUTH. sadece anlamında bir komutur
-                //Role auth permission aut ezer. role oldg permission calışmaz Sert bir securty barıyeridr. gerekli oldg yerde kullanılmalı ama permission auth daha esnek oldg daha cok kullanılır
+                        //Role auth permission aut ezer. role oldg permission calışmaz Sert bir securty barıyeridr. gerekli oldg yerde kullanılmalı ama permission auth daha esnek oldg daha cok kullanılır
                         anyRequest().//her request için
                 authenticated().//kullanıcı sorgula
                 and().//neye göre
@@ -52,9 +53,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 builder().
                 username("haluk").
                 password(passEncode.passSifrele().encode("1453")).
-                // roles("sefil AGA", "javaya fısıldayan adam").
-                        authorities(ApplicationUserRoles.STUDENT.izinOnayla()).//role enum'daki  STUDENT rolunun izinleri Springboot onayından gecirildi
-                        build();
+               // roles("sefil AGA", "javaya fısıldayan adam").
+               authorities(ApplicationUserRoles.STUDENT.izinOnayla()).//role enum'daki  STUDENT rolunun izinleri Springboot onayından gecirildi
+                build();
         // UserDetails hanimaga = User.builder().username("ipek").password("1979").roles("HANIM AGA hukumat gadınnn").build();
         UserDetails hanimaga = User.builder().username("ipek").password(passEncode.passSifrele().encode("1979")).roles("HANIM AGA hukumat gadınnn").build();
         UserDetails admin = User.

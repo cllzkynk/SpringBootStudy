@@ -19,7 +19,8 @@ public class StudentBean04Config {
                 new StudentBean04(110L,"lutfullah bey","le@cimeyıl.com", LocalDate.of(1992,4,23)),
                 new StudentBean04(111L,"mehmet bey","mhtr@cimeyıl.com", LocalDate.of(1990,6,3)),
                 new StudentBean04(112L,"suleyman bey","slmn@cimeyıl.com", LocalDate.of(2000,10,12)),
-                new StudentBean04(113L,"gökhan bey","gkhn@cimeyıl.com", LocalDate.of(1996,9,7))
+                new StudentBean04(113L,"gökhan bey","gkhn@cimeyıl.com", LocalDate.of(1996,9,7)),
+                new StudentBean04(133L,"islam bey","selam@cimeyıl.com", LocalDate.of(1996,9,7))
 
         ));
 

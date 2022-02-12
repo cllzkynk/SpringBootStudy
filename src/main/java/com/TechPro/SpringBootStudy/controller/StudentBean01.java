@@ -57,6 +57,8 @@ public class StudentBean01 implements StudentInterface{
 
     @Override
     public String study() {
-        return "Agam ben StudentBean01 class'dan selam geririrem :-)";
+        return null;
     }
+
+
 }
