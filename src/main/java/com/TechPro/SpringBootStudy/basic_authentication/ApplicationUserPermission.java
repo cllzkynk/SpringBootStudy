@@ -12,4 +12,7 @@ public enum ApplicationUserPermission {
     public String getPermission() {//final permission veriable obj ile degerini okumak için getter method create edildi
         return permission;
     }
+
+
+
 }
